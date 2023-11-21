@@ -1,0 +1,87 @@
+Table
+1. Product: Huyền
+- ImportPrice: rsa, key = trapdoor
+- PriceToSell: rsa, key = trapdoor
+2. Customer: Khoa Võ
+- Name: substi, key = caesar
+- NumberPhone: rsa, key = trapdoor
+3. Login Account: Hùng
+- Password: rsa, key = trapdoor
+4. Staff: Hùng
+- Name: substi, key = caesar
+- Birthday: rsa, key = trapdoor
+- NumberPhone: rsa, key = trapdoor
+- Address: rsa, key = trapdoor
+5. Supplier: Huyền
+- Name: substi, key = caesar
+- Address: rsa, key = trapdoor
+- NumberPhone: rsa, key = trapdoor
+6. Bill: Khoa Nguyễn
+- Total: rsa, key = trapdoor
+7. Bill_Detail: Khoa Nguyễn
+- UnitPrice: rsa, key = trapdoor
+8. InventoryReceivingVoucher: Huy
+- Total: rsa, key = trapdoor
+- Paid: rsa, key = trapdoor
+9. InventoryReceivingVoucher: Huy
+- UnitPrice: rsa, key = trapdoor
+10. PaymentVoucher: Hùng
+- Pay_Money: rsa, key = trapdoor
+11. Statistic: Khoa Võ
+
+Khoa Võ: Statistic, Customer
+Khoa Nguyễn: Bill, Bill_Detail
+Huyền: Supplier, Product
+Huy: InventoryReceivingVoucher, InventoryReceivingVoucher
+Hùng: PaymentVoucher, Staff, Login Account
+
+
+áp dụng 4 hệ mã
+chữ: Substitution, sau đó mã hóa key bằng Caesar
+- Name
+- Gender
+số + chữ (kí tự): RSA, sau đó mã hóa private key bằng trapdoor knapsack
+- Address
+- Birthday
+số:
+- ImportPrice
+- PriceToSell
+- NumberPhone
+mật khẩu:
+- password: hàm md5
+Các khóa được mã hóa sẽ được lưu trong db, khi mã hóa dữ liệu sẽ được gọi lên
+Công việc trước mắt:
+git clone và cài được project
+viết theo hướng đối tượng
+class cryptographic
+attr:
+plainText
+cyberText
+key
+method:
+encode(): String
+decode(): String
+****
+unicode
+encode rsa, euclide mở rộng: Huyền
+decode rsa: Huyền
+encode trapdoor: Khoa Võ
+decode trapdoor: Huy
+viết lại ceaser với bảng chữ cái tiếng việt có thanh sắc
+viết lại substitution với bảng chữ cái tiếng việt có thanh sắc
+Deadline: hết t5
+
+Các hệ mã:
+* Đối xứng
+- Caesar
+- Substitution
+* Bất đối xứng
+- RSA
+
+17/11/2023: chủ nhật 8h họp
+- Affine: Huyền
+- Playfair:
++ encode: Khoa
++ decode: Huy
+- Khoa Nguyễn: Viết lại caesar
+- Huy: fix bug lại decode trapdoor
